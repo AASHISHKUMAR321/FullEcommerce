@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import logo from '../../../images/logo.png'
+import {Link} from 'react-router-dom'
 
 
 const NavDiv = styled.div`
 
-    
+    width: 95%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     /* grid-template-rows: repeat(3,1fr); */
@@ -38,12 +39,16 @@ const NavDiv = styled.div`
        margin-left: 30px;
    }
    button{
-       background-color: black;
+       background-color: #1cb803;
        color: white;
        border: 0px;
        margin-left: -10px;
        cursor: pointer;
      
+   }
+   a{
+       color: black;
+       text-decoration: none;
    }
    
    @media only screen and (min-width: 0px) and (max-width: 375px) {
@@ -54,25 +59,27 @@ const NavDiv = styled.div`
    }
     @media only screen and (min-width: 0px) and (max-width: 768px){
         grid-template-columns: repeat(2,1fr);
-        .search{
+        /* .search{
+       
             width: 90%;
-           
             margin-top: 70px;
             margin-left: 20px;
             position: absolute;
         background-color: green;
-       
-      
-        .link{
-        
-            position: relative;
-        }
+        } */
         .search{
-       width: 90%;
+       width: 80%;
+       margin-top: 10px;
+       height: 30px;
        display: grid;
-       grid-template-columns: repeat(70%,30%);
+       grid-template-columns: 70% 30%;
+       margin-top: 70px;
+        margin-left: 20px;
+        position: absolute;
+        margin-left: 10%;
    }
-    }
+        
+        
 
        
     }
@@ -84,16 +91,17 @@ export const Navbar = () => {
     <NavDiv>
 
          <div>
-             <img src={logo} alt="" width="100px" height="60px" />
+             <Link to={'/'}><img src={logo} alt="" width="100px" height="60px" /></Link>
          </div>
          <div className='search'>
              <input type="text"   placeholder=' Search here' /><button>search</button>
          </div>
          <div className='link'>
              <ul>
-                 <li>Register</li>
-                 <li>Login</li>
-                 <li><ShoppingBagIcon /></li>
+                 
+                <Link to={'/signup'}><li>Register</li></Link> 
+                <Link to={'/login'}><li>Login</li></Link> 
+                <Link to={"/cart"}><li><ShoppingBagIcon /></li></Link> 
              </ul>
          </div>
         
